@@ -1,0 +1,172 @@
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 0.75rem 1rem;
+        height: auto;
+        gap: 0.75rem;
+    }
+
+    .nav-brand {
+        order: 1;
+        flex: 1;
+        margin: 0;
+    }
+
+    .nav-toggle {
+        display: block;
+        order: 2;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    #themeToggle {
+        order: 3;
+        padding: 0.5rem 0.65rem;
+        font-size: 1.1rem;
+    }
+
+    .search-container {
+        order: 4;
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-links {
+        order: 5;
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border-radius: 12px;
+        margin-top: 0.5rem;
+        border: 1px solid var(--glass-border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 0.85rem 1rem;
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+
+    .search-results {
+        left: 1rem;
+        right: 1rem;
+        width: calc(100% - 2rem);
+    }
+
+    .carousel {
+        height: 300px;
+        margin-top: 140px;
+    }
+
+    .standings-table {
+        font-size: 0.9rem;
+    }
+
+    .standings-table th,
+    .standings-table td {
+        padding: 0.5rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+
+    /* Player cards grid for mobile */
+    .players-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Conference sections for mobile */
+    .conference-section {
+        padding: 1.5rem;
+    }
+
+    /* Hero section for mobile */
+    .hero-intro {
+        padding: 2rem 1rem;
+    }
+
+    .hero-intro h1 {
+        font-size: 2rem;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .hero-ctas .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Tablets */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .carousel {
+        height: 400px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1025px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .carousel {
+        height: 500px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .help-button,
+    .scroll-top,
+    #themeToggle,
+    .social-icons {
+        display: none;
+    }
+
+    body {
+        color: black;
+        background: white;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}

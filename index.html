@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site-ul fanilor NBA din România - Știri, statistici și istorie despre cea mai mare ligă de baschet din lume">
+    <meta name="keywords" content="NBA, baschet, statistici NBA, echipe NBA, jucători NBA, istorie NBA">
+    <meta name="author" content="Your Name">
+    <meta name="theme-color" content="#00d4ff">
+    
+    <title>NBA Fan Site - Acasă</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="NBA Fan Site">
+    <meta property="og:description" content="Site-ul fanilor NBA din România">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://your-domain.com">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Preload -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="images/nba-finals.jpg" as="image">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">NBA Fan Site</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Acasă</a>
+            <a href="echipe.html">Echipe</a>
+            <a href="jucatori.html">Jucători</a>
+            <a href="istorie.html">Istorie</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Meniu">☰</button>
+        <button id="themeToggle">🌓</button>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Caută...">
+        </div>
+    </nav>
+
+    <!-- Hero Section with Carousel -->
+    <div class="carousel player-carousel">
+        <div class="carousel-item active">
+            <div class="carousel-slide-panel">
+                <img src="imagini/nbaFinals2025.png" alt="NBA Finals">
+                <div class="carousel-caption">
+                    <h2>NBA Finals 2025</h2>
+                    <p>Cele mai tari meciuri ale sezonului</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-slide-panel">
+                <img src="imagini/allstar.png" alt="All-Star Game">
+                <div class="carousel-caption">
+                    <h2>All-Star Weekend</h2>
+                    <p>Spectacol și performanță</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-slide-panel">
+                <img src="imagini/nba draft.png" alt="NBA Draft">
+                <div class="carousel-caption">
+                    <h2>NBA Draft 2025</h2>
+                    <p>Viitorul baschetului</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="featured-content searchable">
+            <div class="hero-intro">
+                <h1>Bine ați venit pe NBA Fan Site</h1>
+                <p class="hero-sub">Toate noutățile, analizele și statisticile despre campionatul NBA într-un loc — articole, clasamente și pagini de profil detaliate pentru jucătorii tăi preferați.</p>
+                <div class="hero-ctas">
+                    <a class="btn btn-primary" href="echipe.html">Vezi Clasamente</a>
+                    <a class="btn" href="jucatori.html">Explorați Jucători</a>
+                </div>
+            </div>
+
+            <!-- Short description only: site overview and CTAs above -->
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com/nba" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/nba" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/nba" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2025 NBA Fan Site. Toate drepturile rezervate.</p>
+    </footer>
+
+    <!-- Help Button -->
+    <button id="helpBtn" class="help-button">?</button>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top">↑</button>
+    <!-- Scroll to Bottom Button -->
+    <button id="scrollDownBtn" class="scroll-down" aria-label="Mergi la subsol">↓</button>
+
+    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+    <script src="js/carousel.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    
+    <!-- Performance Monitoring -->
+    <script>
+        // Simple performance monitoring
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const timing = window.performance.timing;
+                const pageLoad = timing.loadEventEnd - timing.navigationStart;
+                console.log(`Page Load Time: ${pageLoad}ms`);
+            }, 0);
+        });
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR-GA-ID', {
+            'page_title': 'Home',
+            'page_path': '/'
+        });
+    </script>
+</body>
+</html>

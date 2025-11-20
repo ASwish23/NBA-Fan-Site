@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giannis Antetokounmpo - Profil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">NBA Fan Site</div>
+        <div class="nav-links">
+            <a href="../index.html">Acasă</a>
+            <a href="../echipe.html">Echipe</a>
+            <a href="../jucatori.html">Jucători</a>
+            <a href="../istorie.html">Istorie</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Meniu">☰</button>
+        <button id="themeToggle">🌓</button>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Caută...">
+        </div>
+    </nav>
+    <main class="player-profile">
+        <div class="profile-header">
+            <div class="profile-img">
+                <img src="../imagini/giannis.png" alt="Giannis Antetokounmpo">
+            </div>
+            <div class="profile-summary">
+                <h1>Giannis Antetokounmpo <small style="font-weight:400; color:#666; font-size:0.9rem;">— Milwaukee Bucks</small></h1>
+                <p>Giannis Antetokounmpo (n. 1994), supranumit "Greek Freak", este renumit pentru combinația sa de forță, viteză și versatilitate. A devenit MVP și a condus Bucks la titlul NBA.</p>
+
+                <div class="stats-grid">
+                    <div class="stat"><div class="label">PPG</div><div class="value">29.5</div></div>
+                    <div class="stat"><div class="label">RPG</div><div class="value">11.3</div></div>
+                    <div class="stat"><div class="label">APG</div><div class="value">5.8</div></div>
+                </div>
+
+                <p><a href="../jucatori.html" class="back-link">← Înapoi la jucători</a></p>
+            </div>
+        </div>
+
+        <section class="achievements">
+            <h2>Realizări notabile</h2>
+            <ul>
+                <li>MVP regular season</li>
+                <li>NBA Champion (cu Bucks)</li>
+                <li>Multiple selecții All-Star</li>
+            </ul>
+        </section>
+
+        <section class="timeline">
+            <h2>Cronologie</h2>
+            <div class="timeline-item"><strong>2013:</strong> Debut în NBA, draftat de Milwaukee Bucks.</div>
+            <div class="timeline-item"><strong>2019–2020:</strong> Devine unul dintre cei mai dominanți jucători din ligă.</div>
+            <div class="timeline-item"><strong>2021:</strong> Câștigă titlul NBA și MVP-ul Finalelor.</div>
+        </section>
+
+        <section class="more">
+            <h2>Resurse</h2>
+            <p><a href="https://www.nba.com/player/203507/giannis_antetokounmpo" target="_blank">Profil oficial NBA</a> • <a href="https://en.wikipedia.org/wiki/Giannis_Antetokounmpo" target="_blank">Wikipedia</a></p>
+        </section>
+        
+        <section class="profile-charts">
+            <h2>Statistici și grafice</h2>
+            <svg class="chart" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg" aria-label="Bar chart Giannis">
+                <text x="10" y="20" font-size="12" fill="#666">PPG</text>
+                <text x="10" y="60" font-size="12" fill="#666">RPG</text>
+                <text x="10" y="100" font-size="12" fill="#666">APG</text>
+
+                <rect x="60" y="8" width="200" height="18" fill="#eef2ff" rx="6"></rect>
+                <rect x="60" y="8" width="197.5" height="18" fill="var(--primary-color)" rx="6"></rect>
+
+                <rect x="60" y="48" width="200" height="18" fill="#eef2ff" rx="6"></rect>
+                <rect x="60" y="48" width="56.5" height="18" fill="#fdb927" rx="6"></rect>
+
+                <rect x="60" y="88" width="200" height="18" fill="#eef2ff" rx="6"></rect>
+                <rect x="60" y="88" width="29" height="18" fill="#c8102e" rx="6"></rect>
+
+                <text x="270" y="20" font-size="12" fill="#222">29.5</text>
+                <text x="270" y="60" font-size="12" fill="#222">11.3</text>
+                <text x="270" y="100" font-size="12" fill="#222">5.8</text>
+            </svg>
+
+            <svg class="sparkline" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <polyline fill="none" stroke="#1d428a" stroke-width="2" points="0,34 20,26 40,18 60,16 80,12 100,10 120,8 140,6 160,4 180,6 200,8" />
+            </svg>
+
+            <!-- Interactive Chart (Chart.js) -->
+            <div style="max-width:600px;margin:0.75rem 0;padding:0 0.5rem;">
+                <canvas class="player-chart" width="600" height="180" data-label="PPG (ultime 10)" data-values="22,24,23,26,29,27,25,28,30,31" aria-label="Grafic PPG Giannis"></canvas>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/charts.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

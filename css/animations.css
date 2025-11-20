@@ -1,0 +1,279 @@
+/* Futuristic 2025 Animations */
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to { 
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.3),
+                    0 0 20px rgba(124, 58, 237, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5),
+                    0 0 40px rgba(124, 58, 237, 0.3);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Smooth transitions for theme changes */
+body {
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* Animate page sections on load */
+.featured-content,
+.conference-section,
+.player-stats,
+.history-content,
+.contact-section,
+.players-gallery {
+    animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card hover effects with glow */
+.featured-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.featured-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+                0 0 40px rgba(0, 212, 255, 0.2);
+}
+
+/* Table row modern hover effects */
+.standings-table tbody tr {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.standings-table tbody tr:hover {
+    background: rgba(0, 212, 255, 0.05);
+    transform: scale(1.01);
+}
+
+/* Button animations with glow */
+.btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    animation: glow 2s ease-in-out infinite;
+}
+
+/* Help button float animation */
+.help-button {
+    animation: float 3s ease-in-out infinite;
+}
+
+.help-button:hover {
+    animation: pulse 0.6s ease-in-out;
+}
+
+/* Scroll button animations */
+.scroll-top {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-top:hover {
+    animation: float 1s ease-in-out;
+}
+
+/* Form input focus effects with glow */
+.form-group input:focus,
+.form-group textarea:focus,
+#searchInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1),
+                0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navigation link hover effect */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Timeline animations */
+.timeline-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Modal animations */
+.modal {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+}
+
+.modal-content {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+/* Loading spinner */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading {
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--gray-light);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+/* Skeleton loading animation - updated */
+.skeleton {
+    background: linear-gradient(90deg, 
+        rgba(0, 212, 255, 0.1) 25%, 
+        rgba(124, 58, 237, 0.1) 50%, 
+        rgba(0, 212, 255, 0.1) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Profile elements animations */
+.profile-img img {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+}
+
+/* Chart animations */
+.profile-charts canvas,
+.profile-charts svg {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Gradient text animation */
+@keyframes gradientText {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, 
+        var(--primary-color), 
+        var(--accent-color),
+        var(--primary-color)
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientText 3s ease infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Page load animation */
+body.loaded {
+    animation: fadeIn 0.5s ease-out;
+}

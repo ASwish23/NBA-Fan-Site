@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Curry - Profil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">NBA Fan Site</div>
+        <div class="nav-links">
+            <a href="../index.html">Acasă</a>
+            <a href="../echipe.html">Echipe</a>
+            <a href="../jucatori.html">Jucători</a>
+            <a href="../istorie.html">Istorie</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Meniu">☰</button>
+        <button id="themeToggle">🌓</button>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Caută...">
+        </div>
+    </nav>
+    <main class="player-profile">
+        <div class="profile-header">
+            <div class="profile-img">
+                <img src="../imagini/curry.png" alt="Stephen Curry">
+            </div>
+            <div class="profile-summary">
+                <h1>Stephen Curry <small style="font-weight:400; color:#666; font-size:0.9rem;">— Golden State Warriors</small></h1>
+                <p>Stephen Curry (n. 1988) este considerat cel mai bun shooter din istoria NBA. A schimbat modul în care se joacă basketul, punând accent pe eficiența de la distanță și pe ritmul ofensiv.</p>
+
+                <div class="stats-grid">
+                    <div class="stat"><div class="label">PPG</div><div class="value">24.6</div></div>
+                    <div class="stat"><div class="label">3P%</div><div class="value">42.8%</div></div>
+                    <div class="stat"><div class="label">APG</div><div class="value">6.5</div></div>
+                </div>
+
+                <p><a href="../jucatori.html" class="back-link">← Înapoi la jucători</a></p>
+            </div>
+        </div>
+
+        <section class="achievements">
+            <h2>Realizări notabile</h2>
+            <ul>
+                <li>4× NBA Champion</li>
+                <li>2× NBA MVP (inclusiv un MVP unanim)</li>
+                <li>Multiple selecții All-Star și All-NBA</li>
+            </ul>
+        </section>
+
+        <section class="timeline">
+            <h2>Cronologie</h2>
+            <div class="timeline-item"><strong>2009:</strong> Draftat de Golden State Warriors.</div>
+            <div class="timeline-item"><strong>2015–2018:</strong> Contribuie la dominantele campanii ale Warriors și câștigă mai multe titluri.</div>
+            <div class="timeline-item"><strong>2022:</strong> Revine în prim-plan și câștigă încă un titlu cu Warriors.</div>
+        </section>
+
+        <section class="more">
+            <h2>Resurse</h2>
+            <p><a href="https://www.nba.com/player/201939/stephen_curry" target="_blank">Profil oficial NBA</a> • <a href="https://en.wikipedia.org/wiki/Stephen_Curry" target="_blank">Wikipedia</a></p>
+        </section>
+        
+        <section class="profile-charts">
+            <h2>Statistici și grafice</h2>
+            <svg class="chart" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg" aria-label="Bar chart Curry">
+                <text x="10" y="20" font-size="12" fill="#666">PPG</text>
+                <text x="10" y="60" font-size="12" fill="#666">3P%</text>
+                <text x="10" y="100" font-size="12" fill="#666">APG</text>
+
+                <rect x="60" y="8" width="200" height="18" fill="#eef2ff" rx="6"></rect>
+                <rect x="60" y="8" width="123" height="18" fill="var(--primary-color)" rx="6"></rect>
+
+                <rect x="60" y="48" width="200" height="18" fill="#eef2ff" rx="6"></rect>
+                <rect x="60" y="48" width="85.6" height="18" fill="#fdb927" rx="6"></rect>
+
+                <rect x="60" y="88" width="200" height="18" fill="#eef2ff" rx="6"></rect>
+                <rect x="60" y="88" width="130" height="18" fill="#c8102e" rx="6"></rect>
+
+                <text x="270" y="20" font-size="12" fill="#222">24.6</text>
+                <text x="270" y="60" font-size="12" fill="#222">42.8%</text>
+                <text x="270" y="100" font-size="12" fill="#222">6.5</text>
+            </svg>
+
+            <svg class="sparkline" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <polyline fill="none" stroke="#1d428a" stroke-width="2" points="0,30 20,28 40,26 60,22 80,20 100,18 120,16 140,14 160,12 180,10 200,8" />
+            </svg>
+
+            <!-- Interactive Chart (Chart.js) -->
+            <div style="max-width:600px;margin:0.75rem 0;padding:0 0.5rem;">
+                <canvas class="player-chart" width="600" height="180" data-label="PPG (ultime 10)" data-values="31,29,33,30,35,32,28,34,36,34" aria-label="Grafic PPG Curry"></canvas>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/charts.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

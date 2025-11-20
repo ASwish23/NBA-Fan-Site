@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Fan Site - Jucători</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">NBA Fan Site</div>
+        <div class="nav-links">
+            <a href="index.html">Acasă</a>
+            <a href="echipe.html">Echipe</a>
+            <a href="jucatori.html" class="active">Jucători</a>
+            <a href="istorie.html">Istorie</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-label="Meniu">☰</button>
+        <button id="themeToggle">🌓</button>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Caută jucători...">
+        </div>
+    </nav>
+
+    <!-- Player Carousel -->
+    <div class="carousel player-carousel">
+        <div class="carousel-item active">
+            <div class="carousel-slide-panel">
+                <img src="D:\faculta\Piug\AllenPiug\Piug\imagini\lebrooooon.jpg" alt="LeBron James">
+                <div class="carousel-caption">
+                    <h2><a href="players/lebron.html" style="color: inherit; text-decoration: none;">LeBron James</a></h2>
+                    <p>Los Angeles Lakers</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-slide-panel">
+                <img src="D:\faculta\Piug\AllenPiug\Piug\imagini\giany.webp" alt="Giannis Antetokounmpo">
+                <div class="carousel-caption">
+                    <h2><a href="players/giannis.html" style="color: inherit; text-decoration: none;">Giannis Antetokounmpo</a></h2>
+                    <p>Milwaukee Bucks</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="carousel-slide-panel">
+                <img src="D:\faculta\Piug\AllenPiug\Piug\imagini\ciury.webp" alt="Stephen Curry">
+                <div class="carousel-caption">
+                    <h2><a href="players/curry.html" style="color: inherit; text-decoration: none;">Stephen Curry</a></h2>
+                    <p>Golden State Warriors</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Players Gallery -->
+    <section class="players-gallery container">
+        <h2 class="section-title">Jucători Reprezentați</h2>
+        <div class="players-grid">
+            <div class="player-card">
+                <a href="players/lebron.html">
+                    <img src="D:\faculta\Piug\AllenPiug\Piug\imagini\lebrooooon.jpg" alt="LeBron James">
+                </a>
+                <h3><a href="players/lebron.html">LeBron James</a></h3>
+                <p>Los Angeles Lakers</p>
+            </div>
+            <div class="player-card">
+                <a href="players/giannis.html">
+                    <img src="D:\faculta\Piug\AllenPiug\Piug\imagini\giany.webp" alt="Giannis Antetokounmpo">
+                </a>
+                <h3><a href="players/giannis.html">Giannis Antetokounmpo</a></h3>
+                <p>Milwaukee Bucks</p>
+            </div>
+            <div class="player-card">
+                <a href="players/curry.html">
+                    <img src="D:\faculta\Piug\AllenPiug\Piug\imagini\ciury.webp" alt="Stephen Curry">
+                </a>
+                <h3><a href="players/curry.html">Stephen Curry</a></h3>
+                <p>Golden State Warriors</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview interactive chart -->
+    <section class="players-overview container">
+        <h2 class="section-title">Tendințe recente</h2>
+        <div style="max-width:900px;margin:0 auto;padding:1rem;">
+            <canvas id="overviewChart" width="900" height="260" aria-label="Graficul mediei punctelor" role="img"></canvas>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com/nba" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/nba" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/nba" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2025 NBA Fan Site. Toate drepturile rezervate.</p>
+    </footer>
+
+    <!-- Help Button -->
+    <button id="helpBtn" class="help-button">?</button>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top">↑</button>
+    <!-- Scroll to Bottom Button -->
+    <button id="scrollDownBtn" class="scroll-down" aria-label="Mergi la subsol">↓</button>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/carousel.js"></script>
+    <!-- Chart.js and site charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/charts.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR-GA-ID"></script>
+</body>
+</html>
