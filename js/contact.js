@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const formStatus = document.getElementById('formStatus');
     
     // Validation patterns
     const patterns = {
@@ -19,8 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
         message: 'Mesajul trebuie să conțină între 10 și 1000 de caractere.'
     };
 
-    // Real-time validation
-    const submitBtn = form.querySelector('button[type="submit"]');
+    function validateField(field, input, errorElement) {
+        const value = input.value.trim();
+        
+        // Phone is optional
+        if (field === 'phone' && value === '') {
+            errorElement.textContent = '';
+            input.classList.remove('error');
+            return true;
+        }
+        
+        if (!patterns[field].test(value)) {
+            errorElement.textContent = errorMessages[field];
+            input.classList.add('error');
+            return false;
+        }
+        
+        errorElement.textContent = '';
+        input.classList.remove('error');
+        return true;
+    }
 
     function isFormValid() {
         return Object.keys(patterns).every(field => {
@@ -36,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = !isFormValid();
     }
 
+    // Real-time validation
     Object.keys(patterns).forEach(field => {
         const input = document.getElementById(field);
         const errorElement = document.getElementById(`${field}Error`);
@@ -46,11 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // initialize submit state
+    // Initialize submit state
     updateSubmitState();
 
-    // Form submission
-    form.addEventListener('submit', (e) => {
+    // Form submission with Formspree
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         let isValid = true;
@@ -65,88 +86,45 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // If form is valid, submit
-        if (isValid) {
-            // EmailJS automatic send configuration
-            // IMPORTANT: create an EmailJS account and replace the placeholders below.
-            const USE_EMAILJS = true; // set to true to use EmailJS
-            const EMAILJS_SERVICE_ID = 'your_service_id'; // e.g. 'service_xxx'
-            const EMAILJS_TEMPLATE_ID = 'your_template_id'; // e.g. 'template_xxx'
-            const EMAILJS_USER_ID = 'your_user_id'; // e.g. 'user_xxx'
-
-            // Collect form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (USE_EMAILJS) {
-                if (submitBtn) submitBtn.disabled = true;
-
-                function doSend() {
-                    try {
-                        emailjs.init(EMAILJS_USER_ID);
-                        const templateParams = {
-                            from_name: name,
-                            from_email: email,
-                            phone: phone || '-',
-                            subject,
-                            message
-                        };
-
-                        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-                            .then(() => {
-                                alert('Mesaj trimis cu succes.');
-                                form.reset();
-                                updateSubmitState();
-                            }, (err) => {
-                                console.error('EmailJS error:', err);
-                                alert('A apărut o eroare la trimiterea mesajului.');
-                                if (submitBtn) submitBtn.disabled = false;
-                            });
-                    } catch (err) {
-                        console.error('EmailJS init error:', err);
-                        alert('Eroare la inițializarea serviciului de trimitere.');
-                        if (submitBtn) submitBtn.disabled = false;
-                    }
+        if (!isValid) return;
+        
+        // Disable submit button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Se trimite...';
+        
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
                 }
-
-                // Load SDK if necessary
-                if (typeof emailjs === 'undefined') {
-                    const s = document.createElement('script');
-                    s.src = 'https://cdn.emailjs.com/sdk/2.3.2/email.min.js';
-                    s.onload = doSend;
-                    document.head.appendChild(s);
-                } else {
-                    doSend();
-                }
-
+            });
+            
+            if (response.ok) {
+                formStatus.style.display = 'block';
+                formStatus.style.background = 'linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 255, 136, 0.15))';
+                formStatus.style.border = '1px solid rgba(0, 212, 255, 0.4)';
+                formStatus.style.color = 'var(--text-color)';
+                formStatus.innerHTML = '✅ <strong>Mesajul a fost trimis cu succes!</strong><br>Vă vom răspunde în cel mai scurt timp.';
+                form.reset();
+                updateSubmitState();
             } else {
-                // Fallback: open user's mail client with pre-filled message
-                const RECEIVER_EMAIL = 'biro.allen23@yahoo.com';
-                const bodyLines = [
-                    `Nume: ${name}`,
-                    `Email: ${email}`,
-                    `Telefon: ${phone || '-'}`,
-                    '',
-                    'Mesaj:',
-                    message
-                ];
-                const mailtoLink = `mailto:${encodeURIComponent(RECEIVER_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-                window.location.href = mailtoLink;
-                alert('Se va deschide clientul de email implicit cu mesajul precompletat.');
+                throw new Error('Form submission failed');
             }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            formStatus.style.display = 'block';
+            formStatus.style.background = 'linear-gradient(135deg, rgba(255, 0, 0, 0.15), rgba(255, 100, 0, 0.15))';
+            formStatus.style.border = '1px solid rgba(255, 0, 0, 0.4)';
+            formStatus.style.color = 'var(--text-color)';
+            formStatus.innerHTML = '❌ <strong>Eroare la trimiterea mesajului.</strong><br>Vă rugăm să încercați din nou sau să ne contactați direct la <a href="mailto:biro.allen23@yahoo.com" style="color: var(--primary-color);">biro.allen23@yahoo.com</a>';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Trimite Mesajul';
         }
     });
-
-    // Validation function
-    function validateField(field, input, errorElement) {
-        const value = input.value.trim();
-        
-        // Skip validation for optional phone field if empty
-        if (field === 'phone' && value === '') {
-            errorElement.textContent = '';
             return true;
         }
         
