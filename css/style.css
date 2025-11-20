@@ -540,16 +540,14 @@ mark {
     left: auto;
     right: auto;
     padding: 1.5rem 2rem;
-    background: var(--carousel-caption-bg);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    color: var(--carousel-caption-color);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75));
+    color: #ffffff;
     text-align: left;
     max-width: 42%;
     border-radius: 16px;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15),
-                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(0, 212, 255, 0.2);
     z-index: 2;
 }
 
@@ -558,12 +556,13 @@ mark {
     font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .carousel-caption p { 
     margin: 0; 
-    color: var(--carousel-caption-color); 
-    opacity: 0.85;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1.05rem;
     font-weight: 500;
 }
